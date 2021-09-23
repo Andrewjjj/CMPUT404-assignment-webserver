@@ -86,6 +86,8 @@ class TestYourWebserver(unittest.TestCase):
         try:
             req = request.urlopen(url, None, 3)
             code = req.getcode() 
+            print(req.getcode())
+            print(req.geturl(), expected_url)
             if code >= 200 and code <= 299 and req.geturl() == expected_url:
                 self.assertTrue(True, "The library has redirected for us")
             else:
